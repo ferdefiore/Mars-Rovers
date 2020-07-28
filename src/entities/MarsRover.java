@@ -23,6 +23,7 @@ public class MarsRover {
 
     public void executeCommands(ArrayList<ICommand> commands, Plateau plateau) {
         for (ICommand command : commands) {
+            //todo check if command is valid for this rover
             command.execute(this);
             checkValidPosition(plateau);
         }

@@ -15,7 +15,7 @@ public class ResultMenuView {
 
     public ResultMenuView(Controller nasaController) {
         frame = new JFrame("Nasa Control Center");
-        frame.setSize(700, 600);
+        frame.setSize(800, 600);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.add(this.panel);
         frame.setLocationRelativeTo(null);

@@ -79,9 +79,10 @@ public class IOManager {
     private ArrayList<ICommand> stringToICommandList(String str) {
         ArrayList<ICommand> commands = new ArrayList<>();
         for (char c : str.toCharArray()) {
-            if (charToCommand.containsKey(c)) {
-                commands.add(charToCommand.get(c));
+            if (CharToIComandMapper.charToCommand.containsKey(c)) {
+                commands.add(CharToIComandMapper.charToCommand.get(c));
             } else throw new IllegalArgumentException("Illegal argument " + c + " in instructions.");
+
         }
         return commands;
     }
