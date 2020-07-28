@@ -13,8 +13,16 @@ public class MarsRover {
         this.orientedPosition = orientedPosition;
     }
 
-    public void executeCommands(ArrayList<ICommand> commands, Plateau plateau){
-        for(ICommand command : commands){
+    @Override
+    public String toString() {
+        return "MarsRover{" +
+                "Id=" + roverId +
+                ", " + orientedPosition +
+                '}';
+    }
+
+    public void executeCommands(ArrayList<ICommand> commands, Plateau plateau) {
+        for (ICommand command : commands) {
             command.execute(this);
             checkValidPosition(plateau);
         }
@@ -25,7 +33,7 @@ public class MarsRover {
                 || orientedPosition.getYPos() < 0
                 || orientedPosition.getXPos() > plateau.getPlateauMaxWidth()
                 || orientedPosition.getYPos() > plateau.getPlateauMaxHeight()))
-            throw new IllegalStateException(String.format("MARS ROVER %d R.I.P: Invalid moves, rover %d went outside Mars platform. We'll never see him again", roverId, roverId));
+            throw new IllegalStateException(String.format("R.I.P: Invalid moves, rover %d went outside Mars platform. We'll never see him again", roverId));
     }
 
     public void moveForward() {

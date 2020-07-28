@@ -17,21 +17,22 @@ import java.util.Scanner;
 public class IOManager {
     private Scanner scanner;
     private String instructionsLog = "";
+    private String expeditionLog = "";
     private Plateau decodedPlateau;
     private final ArrayList<MarsRover> marsRovers = new ArrayList<>();
     private final Map<Integer, ArrayList<ICommand>> roverInstructionSet = new HashMap<>();
 
 
-    public void decodeInput(String input) {
+    public boolean decodeInput(String input) {
         scanner = new Scanner(input);
         try {
             decodePlateau();
             decodeRoversAndInstructions();
-        }catch (Exception e){
+        } catch (Exception e) {
             instructionsLog += "**********THE ROVERS CANT START NAVIGATION BECAUSE OF SOME INPUT ERROR********** \n\n";
-            instructionsLog += e.getMessage();
-            throw e;
+            return false;
         }
+        return true;
     }
 
     private void decodePlateau() {
@@ -47,20 +48,32 @@ public class IOManager {
         int rovId = 1;
         int xPos;
         int yPos;
+        String instructionsAsString;
         CompassPoint facingCardinalPoint;
         instructionsLog += "******************TRYING TO DECODE ROVERS AND INSTRUCTIONS SET****************** \n\n";
+        canRead();
         while (scanner.hasNext()) {
             xPos = scanner.nextInt();
             yPos = scanner.nextInt();
             facingCardinalPoint = CompassPoint.valueOf(scanner.next());
             marsRovers.add(new MarsRover(rovId, new OrientedPosition(xPos, yPos, facingCardinalPoint)));
-            roverInstructionSet.put(rovId, stringToICommandList(scanner.next()));
+            canRead();
+            instructionsAsString = scanner.next();
+            roverInstructionSet.put(rovId, stringToICommandList(instructionsAsString));
             instructionsLog += "DECODED ROVER: " + marsRovers.get(rovId - 1) + "\n";
-            instructionsLog += "DECODED INSTRUCTION SET: " + marsRovers.get(rovId - 1) + "\n\n";
+            instructionsLog += "DECODED INSTRUCTION SET: " + instructionsAsString + "\n\n";
             rovId++;
         }
         instructionsLog += "***********************DECODING INSTRUCTIONS FINISHED*************************** \n\n";
         instructionsLog += "**********MARS ROVERS ARE SUCCESSFULLY LANDED AND STARTING NAVIGATION*********** \n\n";
+        instructionsLog += "************************MARS ROVERS OUTPUT INFORMATION************************** \n\n";
+    }
+
+    private boolean canRead() {
+        if (!scanner.hasNext()) {
+            throw new IllegalArgumentException();
+        }
+        return true;
     }
 
     private ArrayList<ICommand> stringToICommandList(String str) {
@@ -68,7 +81,7 @@ public class IOManager {
         for (char c : str.toCharArray()) {
             if (charToCommand.containsKey(c)) {
                 commands.add(charToCommand.get(c));
-            }else throw new IllegalArgumentException("Illegal argument " + c + " in instructions.");
+            } else throw new IllegalArgumentException("Illegal argument " + c + " in instructions.");
         }
         return commands;
     }
@@ -78,7 +91,6 @@ public class IOManager {
         put('R', new RightCommand());
         put('M', new MoveCommand());
     }};
-
 
 
     public String getInstructionsLog() {
@@ -95,5 +107,23 @@ public class IOManager {
 
     public Map<Integer, ArrayList<ICommand>> getRoverInstructionSet() {
         return roverInstructionSet;
+    }
+
+    public void clearLogs() {
+        instructionsLog = "";
+        expeditionLog = "";
+    }
+
+    public void clearData() {
+        marsRovers.clear();
+        roverInstructionSet.clear();
+    }
+
+    public void appendToExpeditionLog(String log) {
+        expeditionLog += log;
+    }
+
+    public String getExpeditionLog() {
+        return expeditionLog;
     }
 }
