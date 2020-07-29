@@ -12,14 +12,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MarsRoverTest {
 
-    private Plateau marsPlateau;
+    private Plateau plateau;
     private MarsRover marsRover1;
 
     @BeforeEach
     void setUP() {
-        marsPlateau = new Plateau(5, 5);
+        plateau = new Plateau(5, 5);
         marsRover1 = new MarsRover(1, new OrientedPosition(1, 2, CompassPoint.N));
     }
+
+//    @Test
+//    void executeCommand(){
+//        ArrayList<ICommand> commands = new ArrayList<>();
+//        ICommand iCommand = marsRover -> Assertions.assertEquals(marsRover, marsRover1);
+//        commands.add(iCommand);
+//        marsRover1.executeCommands(commands, plateau);
+//    }
 
     @Test
     void executeCommandsSuccess() {
@@ -29,18 +37,18 @@ class MarsRoverTest {
         for (char c : validSequenceOfMovements.toCharArray()) {
             commands.add(CommandFactory.charToCommand.get(c));
         }
-        marsRover1.executeCommands(commands, marsPlateau);
+        marsRover1.executeCommands(commands, plateau);
         Assertions.assertEquals(expectedPosition, marsRover1.getOrientedPosition());
     }
 
     @Test
     void executeCommandsFailMove() {
         ArrayList<ICommand> commands = new ArrayList<>();
-        String invalidSequenceOfMovements = "LMLMLMLMMMMMMMM";
+        String invalidSequenceOfMovements = "LMLMLRMLMMMMMMMM";
         for (char c : invalidSequenceOfMovements.toCharArray()) {
             commands.add(CommandFactory.charToCommand.get(c));
         }
-        Assertions.assertThrows(IllegalStateException.class, () -> marsRover1.executeCommands(commands, marsPlateau));
+        Assertions.assertThrows(IllegalStateException.class, () -> marsRover1.executeCommands(commands, plateau));
     }
 
     @Test

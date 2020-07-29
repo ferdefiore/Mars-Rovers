@@ -13,12 +13,12 @@ public class MarsRover {
         this.orientedPosition = orientedPosition;
     }
 
-    @Override
-    public String toString() {
-        return "MarsRover{" +
-                "Id=" + roverId +
-                ", " + orientedPosition +
-                '}';
+    public int getRoverId() {
+        return roverId;
+    }
+
+    public OrientedPosition getOrientedPosition() {
+        return orientedPosition;
     }
 
     public void executeCommands(ArrayList<ICommand> commands, Plateau plateau) {
@@ -62,11 +62,21 @@ public class MarsRover {
         orientedPosition.setCompassPoint(this.orientedPosition.getCompassPoint().turn90DegreeLeft());
     }
 
-    public int getRoverId() {
-        return roverId;
+    @Override
+    public String toString() {
+        return "MarsRover{" +
+                "Id=" + roverId +
+                ", " + orientedPosition +
+                '}';
     }
 
-    public OrientedPosition getOrientedPosition() {
-        return orientedPosition;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MarsRover marsRover = (MarsRover) o;
+        return roverId == marsRover.roverId &&
+                orientedPosition.equals(marsRover.orientedPosition);
     }
+
 }

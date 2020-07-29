@@ -29,4 +29,14 @@ public class Plateau {
                 ", plateauMaxHeight=" + plateauMaxHeight +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Plateau plateau = (Plateau) o;
+        return plateauMaxWidth == plateau.plateauMaxWidth &&
+                plateauMaxHeight == plateau.plateauMaxHeight;
+    }
+
 }

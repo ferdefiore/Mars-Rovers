@@ -9,13 +9,16 @@ public class OutputConsoleSystemOut implements IOutput {
     public void exposeResults(ILoggerOutput loggerOutput, Decoder.Data inputData) {
         if (inputData != null) {
             OrientedPosition roverPosition = inputData.getMarsRovers().get(0).getOrientedPosition();
-            String outInformation = "{" +
-                    "\"xPos\" : " + roverPosition.getXPos() +
-                    ", \"yPos\" : " + roverPosition.getYPos() +
-                    ", \"compassPoint\" : \"" + roverPosition.getCompassPoint() +
-                    "\"}";
-            System.out.println(outInformation);
+            System.out.println(orientedPositionToJson(roverPosition));
         }
+    }
+
+    private String orientedPositionToJson(OrientedPosition orientedPosition) {
+        return "{" +
+                "\"xPos\" : " + orientedPosition.getXPos() +
+                ", \"yPos\" : " + orientedPosition.getYPos() +
+                ", \"compassPoint\" : \"" + orientedPosition.getCompassPoint() +
+                "\"}";
     }
 }
 

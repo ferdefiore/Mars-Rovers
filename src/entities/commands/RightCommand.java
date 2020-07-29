@@ -7,4 +7,8 @@ public class RightCommand implements ICommand {
     public void execute(MarsRover marsRover) {
         marsRover.turnRight();
     }
+
+    public boolean equalType(ICommand command) {
+        return (command instanceof RightCommand);
+    }
 }

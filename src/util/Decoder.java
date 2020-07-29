@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class Decoder implements IDecoder {
 
     @Override
-    public Data decodeInput(String input, ILoggerOutput loggerOutput) { //plateu, marrovers, roverinstructionset
+    public Data decodeInput(String input, ILoggerOutput loggerOutput) {
         Scanner scanner = new Scanner(input);
         ArrayList<MarsRover> marsRoversList = new ArrayList<>();
         HashMap<Integer, ArrayList<ICommand>> instructionsSet = new HashMap<>();
@@ -55,9 +55,9 @@ public class Decoder implements IDecoder {
             yPos = scanner.nextInt();
             facingCardinalPoint = CompassPoint.valueOf(scanner.next());
             marsRoversList.add(new MarsRover(rovId, new OrientedPosition(xPos, yPos, facingCardinalPoint)));
+            loggerOutput.appendDecodedRover(marsRoversList.get(rovId - 1).toString());
             instructionsAsString = scanner.next();
             instructionsSet.put(rovId, stringToICommandList(instructionsAsString));
-            loggerOutput.appendDecodedRover(marsRoversList.get(rovId - 1).toString());
             loggerOutput.appendInstructions(instructionsAsString);
             rovId++;
         }
@@ -96,6 +96,31 @@ public class Decoder implements IDecoder {
             this.plateau = plateau;
             this.marsRovers = marsRovers;
             this.roverInstructionSet = roverInstructionSet;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Data data = (Data) o;
+
+            boolean p = plateau.equals(data.plateau);
+            boolean m = marsRovers.equals(data.marsRovers);
+            boolean r = true;
+            if (roverInstructionSet.size() == data.roverInstructionSet.size()) {
+                for (Integer key : roverInstructionSet.keySet()) {
+                    ArrayList<ICommand> r1command = roverInstructionSet.get(key);
+                    ArrayList<ICommand> r2command = data.roverInstructionSet.get(key);
+                    int i = 0;
+                    for (ICommand command : roverInstructionSet.get(key)) {
+                        if (!command.equalType(r2command.get(i))) {
+                            return false;
+                        }
+                        i++;
+                    }
+                }
+            }
+            return (p && m && r);
         }
     }
 
