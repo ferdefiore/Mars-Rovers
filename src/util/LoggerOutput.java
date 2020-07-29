@@ -1,6 +1,8 @@
 package util;
 
 
+import util.interfaces.ILoggerOutput;
+
 public class LoggerOutput implements ILoggerOutput {
 
     private final String LINE = "\n";

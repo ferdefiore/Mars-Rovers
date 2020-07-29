@@ -1,5 +1,6 @@
 package entities;
 
+
 public enum CompassPoint {
     N {
         public CompassPoint turn90DegreeLeft() { return CompassPoint.W; }

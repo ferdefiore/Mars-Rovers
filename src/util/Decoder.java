@@ -6,6 +6,8 @@ import entities.OrientedPosition;
 import entities.Plateau;
 import entities.commands.CommandFactory;
 import entities.commands.ICommand;
+import util.interfaces.IDecoder;
+import util.interfaces.ILoggerOutput;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,6 +1,8 @@
 package util;
 
 import entities.MarsRover;
+import util.interfaces.ILoggerOutput;
+import util.interfaces.ISimulator;
 
 import java.util.ArrayList;
 

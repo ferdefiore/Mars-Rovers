@@ -1,6 +1,10 @@
 package controller;
 
-import util.*;
+import util.Decoder;
+import util.interfaces.IDecoder;
+import util.interfaces.ILoggerOutput;
+import util.interfaces.IOutput;
+import util.interfaces.ISimulator;
 
 public class Controller {
     private final IDecoder decoder;

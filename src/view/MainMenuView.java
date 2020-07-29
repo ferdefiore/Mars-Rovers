@@ -2,8 +2,8 @@ package view;
 
 import controller.Controller;
 import util.Decoder;
-import util.ILoggerOutput;
-import util.IOutput;
+import util.interfaces.ILoggerOutput;
+import util.interfaces.IOutput;
 
 import javax.swing.*;
 import java.awt.*;

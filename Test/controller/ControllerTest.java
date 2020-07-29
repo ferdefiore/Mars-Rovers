@@ -4,7 +4,11 @@ package controller;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import util.*;
+import util.Decoder;
+import util.interfaces.IDecoder;
+import util.interfaces.ILoggerOutput;
+import util.interfaces.IOutput;
+import util.interfaces.ISimulator;
 
 class ControllerTest {
 
