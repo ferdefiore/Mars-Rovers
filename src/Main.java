@@ -20,6 +20,5 @@ public class Main {
         Controller controller = new Controller(new IOManager());
         controller.performMovementsIntoPlateau(instructions);
         System.out.println(controller.getRoverByIndex(0).getOrientedPosition().toJsonString());
-        System.out.println(controller.getOutputLog());
     }
 }

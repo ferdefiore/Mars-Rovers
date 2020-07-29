@@ -20,6 +20,7 @@ public class Controller {
     }
 
     public void performMovementsIntoPlateau(String str) {
+
         if (ioManager.decodeInput(str)) {
             initData();
             for (MarsRover rover : marsRovers) {
@@ -27,7 +28,6 @@ public class Controller {
                     rover.executeCommands(roverInstructionSet.get(rover.getRoverId()), marsPlateau);
                     ioManager.appendToExpeditionLog(rover.toString());
                 } catch (Exception e) {
-                    System.out.println("SEFUEEEEEEEEEEEEEEEEEEE");
                     ioManager.appendToExpeditionLog(e.getMessage());
                 }
             }

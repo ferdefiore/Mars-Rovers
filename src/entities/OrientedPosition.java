@@ -37,9 +37,9 @@ public class OrientedPosition {
 
     public String toJsonString() {
         return "{" +
-                "\"xPos\":" + xPos +
-                ", \"yPos\":" + yPos +
-                ", \"compassPoint\": \"" + compassPoint +
+                "\"xPos\" : " + xPos +
+                ", \"yPos\" : " + yPos +
+                ", \"compassPoint\" : \"" + compassPoint +
                 "\"}";
     }
 

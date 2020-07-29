@@ -29,6 +29,7 @@ public class IOManager {
             decodePlateau();
             decodeRoversAndInstructions();
         } catch (Exception e) {
+            //instructionsLog += e.getMessage();
             instructionsLog += "**********THE ROVERS CANT START NAVIGATION BECAUSE OF SOME INPUT ERROR********** \n\n";
             return false;
         }
@@ -121,7 +122,7 @@ public class IOManager {
     }
 
     public void appendToExpeditionLog(String log) {
-        expeditionLog += log;
+        expeditionLog += log + "\n";
     }
 
     public String getExpeditionLog() {
