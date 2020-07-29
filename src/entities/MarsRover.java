@@ -1,10 +1,11 @@
 package entities;
 
 import entities.commands.ICommand;
+import interfaces.IMarsRover;
 
 import java.util.ArrayList;
 
-public class MarsRover {
+public class MarsRover implements IMarsRover {
     private final int roverId;
     private final OrientedPosition orientedPosition;
 
@@ -13,14 +14,17 @@ public class MarsRover {
         this.orientedPosition = orientedPosition;
     }
 
+    @Override
     public int getRoverId() {
         return roverId;
     }
 
+    @Override
     public OrientedPosition getOrientedPosition() {
         return orientedPosition;
     }
 
+    @Override
     public void executeCommands(ArrayList<ICommand> commands, Plateau plateau) {
         for (ICommand command : commands) {
             //todo check if command is valid for this rover
@@ -37,6 +41,7 @@ public class MarsRover {
             throw new IllegalStateException(String.format("R.I.P: Invalid moves, rover %d went outside Mars platform. We'll never see him again", roverId));
     }
 
+    @Override
     public void moveForward() {
         switch (orientedPosition.getCompassPoint()){
             case N:
@@ -54,10 +59,12 @@ public class MarsRover {
         }
     }
 
+    @Override
     public void turnRight() {
         orientedPosition.setCompassPoint(this.orientedPosition.getCompassPoint().turn90DegreeRight());
     }
 
+    @Override
     public void turnLeft() {
         orientedPosition.setCompassPoint(this.orientedPosition.getCompassPoint().turn90DegreeLeft());
     }

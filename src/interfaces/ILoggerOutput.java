@@ -1,4 +1,4 @@
-package util.interfaces;
+package interfaces;
 
 public interface ILoggerOutput {
     String getOutput();

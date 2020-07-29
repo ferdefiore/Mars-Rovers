@@ -1,9 +1,9 @@
 package entities.commands;
 
-import entities.MarsRover;
+import interfaces.IMarsRover;
 
 public interface ICommand {
-    void execute(MarsRover marsRover);
+    void execute(IMarsRover marsRover);
 
     boolean equalType(ICommand command);
 }

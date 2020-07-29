@@ -1,7 +1,7 @@
 package util;
 
 
-import util.interfaces.ILoggerOutput;
+import interfaces.ILoggerOutput;
 
 public class LoggerOutput implements ILoggerOutput {
 

@@ -1,9 +1,9 @@
 package view;
 
 import controller.Controller;
-import util.Decoder;
-import util.interfaces.ILoggerOutput;
-import util.interfaces.IOutput;
+import interfaces.IData;
+import interfaces.ILoggerOutput;
+import interfaces.IOutput;
 
 import javax.swing.*;
 import java.awt.*;
@@ -60,7 +60,7 @@ public class MainMenuView implements IOutput {
     }
 
     @Override
-    public void exposeResults(ILoggerOutput loggerOutput, Decoder.Data inputData) {
+    public void exposeResults(ILoggerOutput loggerOutput, IData inputIData) {
         new ResultMenuView(loggerOutput.getOutput());
     }
 

@@ -1,10 +1,10 @@
 package entities.commands;
 
-import entities.MarsRover;
+import interfaces.IMarsRover;
 
 public class RightCommand implements ICommand {
     @Override
-    public void execute(MarsRover marsRover) {
+    public void execute(IMarsRover marsRover) {
         marsRover.turnRight();
     }
 

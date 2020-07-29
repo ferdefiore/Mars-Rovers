@@ -1,10 +1,6 @@
 package controller;
 
-import util.Decoder;
-import util.interfaces.IDecoder;
-import util.interfaces.ILoggerOutput;
-import util.interfaces.IOutput;
-import util.interfaces.ISimulator;
+import interfaces.*;
 
 public class Controller {
     private final IDecoder decoder;
@@ -18,12 +14,12 @@ public class Controller {
     }
 
     public void performMovementsIntoPlateau(String str, IOutput iOutput) {
-        Decoder.Data inputData;
-        inputData = decoder.decodeInput(str, loggerOutput);
-        if (inputData != null) {
-            simulator.run(inputData, loggerOutput);
+        IData inputIData;
+        inputIData = decoder.decodeInput(str, loggerOutput);
+        if (inputIData != null) {
+            simulator.run(inputIData, loggerOutput);
         }
-        iOutput.exposeResults(loggerOutput, inputData);
+        iOutput.exposeResults(loggerOutput, inputIData);
     }
 
 }

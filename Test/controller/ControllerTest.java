@@ -1,14 +1,11 @@
 
 package controller;
 
+import interfaces.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import util.Decoder;
-import util.interfaces.IDecoder;
-import util.interfaces.ILoggerOutput;
-import util.interfaces.IOutput;
-import util.interfaces.ISimulator;
 
 class ControllerTest {
 
@@ -87,21 +84,21 @@ class ControllerTest {
 
     @Test
     void performMovementsIntoPlateau() {
-        Decoder.Data decoderData = new Decoder.Data(null, null, null);
+        IData decoderIData = new Decoder.Data(null, null, null);
 
         IDecoder iDecoder = (input, loggerOutput) -> {
             Assertions.assertEquals(input, EMPTY);
             Assertions.assertEquals(loggerOutput, iLoggerOutput);
-            return decoderData;
+            return decoderIData;
         };
 
         IOutput iOutput = (loggerOutput, inputData) -> {
             Assertions.assertEquals(iLoggerOutput, loggerOutput);
-            Assertions.assertEquals(decoderData, inputData);
+            Assertions.assertEquals(decoderIData, inputData);
         };
 
         ISimulator iSimulator = (inputData, logger) -> {
-            Assertions.assertEquals(inputData, decoderData);
+            Assertions.assertEquals(inputData, decoderIData);
             Assertions.assertEquals(logger, iLoggerOutput);
         };
 

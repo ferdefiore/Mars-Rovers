@@ -4,10 +4,11 @@ import entities.CompassPoint;
 import entities.MarsRover;
 import entities.OrientedPosition;
 import entities.Plateau;
+import interfaces.ILoggerOutput;
+import interfaces.IMarsRover;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import util.interfaces.ILoggerOutput;
 
 class LoggerOutputTest {
 
@@ -28,7 +29,7 @@ class LoggerOutputTest {
     private final String ROVERS_OUTPUT = "*******************************MARS ROVERS OUTPUT INFORMATION********************************* \n\n";
     private final String INPUT_ERROR = "*****************THE ROVERS CANT START NAVIGATION BECAUSE OF SOME INPUT ERROR***************** \n\n";
     private ILoggerOutput loggerOutput;
-    MarsRover marsRover = new MarsRover(1, new OrientedPosition(1, 1, CompassPoint.N));
+    IMarsRover marsRover = new MarsRover(1, new OrientedPosition(1, 1, CompassPoint.N));
 
     @BeforeEach
     void setUp() {

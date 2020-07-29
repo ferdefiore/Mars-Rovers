@@ -8,9 +8,11 @@ import entities.commands.ICommand;
 import entities.commands.LeftCommand;
 import entities.commands.MoveCommand;
 import entities.commands.RightCommand;
+import interfaces.IData;
+import interfaces.ILoggerOutput;
+import interfaces.IMarsRover;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import util.interfaces.ILoggerOutput;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -82,9 +84,9 @@ class DecoderTest {
     void decodeInput1Plateau2Rovers2Instructions() {
         Plateau plateau = new Plateau(5, 5);
 
-        MarsRover rover1 = new MarsRover(1, new OrientedPosition(1, 2, CompassPoint.N));
-        MarsRover rover2 = new MarsRover(2, new OrientedPosition(3, 3, CompassPoint.E));
-        ArrayList<MarsRover> rovers = new ArrayList();
+        IMarsRover rover1 = new MarsRover(1, new OrientedPosition(1, 2, CompassPoint.N));
+        IMarsRover rover2 = new MarsRover(2, new OrientedPosition(3, 3, CompassPoint.E));
+        ArrayList<IMarsRover> rovers = new ArrayList();
         rovers.add(rover1);
         rovers.add(rover2);
 
@@ -117,7 +119,7 @@ class DecoderTest {
         instructionsSet.put(rover1.getRoverId(), iCommandsRover1);
         instructionsSet.put(rover2.getRoverId(), iCommandsRover2);
 
-        Decoder.Data dataExpected = new Decoder.Data(plateau, rovers, instructionsSet);
+        IData IDataExpected = new Decoder.Data(plateau, rovers, instructionsSet);
         final int[] callCounter = {0, 0, 0, 0, 0, 0};
         final boolean[] errorMsj = {false};
 
@@ -173,8 +175,8 @@ class DecoderTest {
             }
         };
         Decoder decoder = new Decoder();
-        Decoder.Data result = decoder.decodeInput("5 5 1 2 N LMLMLMLMM 3 3 E MMRMMRMRRM", iLoggerOutput);
-        Assertions.assertTrue(dataExpected.equals(result));
+        IData result = decoder.decodeInput("5 5 1 2 N LMLMLMLMM 3 3 E MMRMMRMRRM", iLoggerOutput);
+        Assertions.assertTrue(IDataExpected.equals(result));
         int[] finalCalls = {1, 1, 1, 2, 2, 1};
         for (int i = 0; i < finalCalls.length; i++) {
             Assertions.assertEquals(finalCalls[i], callCounter[i]);

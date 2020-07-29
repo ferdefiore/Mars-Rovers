@@ -2,6 +2,7 @@ package entities;
 
 import entities.commands.CommandFactory;
 import entities.commands.ICommand;
+import interfaces.IMarsRover;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class MarsRoverTest {
 
     private Plateau plateau;
-    private MarsRover marsRover1;
+    private IMarsRover marsRover1;
 
     @BeforeEach
     void setUP() {

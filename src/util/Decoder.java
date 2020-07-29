@@ -6,8 +6,10 @@ import entities.OrientedPosition;
 import entities.Plateau;
 import entities.commands.CommandFactory;
 import entities.commands.ICommand;
-import util.interfaces.IDecoder;
-import util.interfaces.ILoggerOutput;
+import interfaces.IData;
+import interfaces.IDecoder;
+import interfaces.ILoggerOutput;
+import interfaces.IMarsRover;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,9 +19,9 @@ import java.util.Scanner;
 public class Decoder implements IDecoder {
 
     @Override
-    public Data decodeInput(String input, ILoggerOutput loggerOutput) {
+    public IData decodeInput(String input, ILoggerOutput loggerOutput) {
         Scanner scanner = new Scanner(input);
-        ArrayList<MarsRover> marsRoversList = new ArrayList<>();
+        ArrayList<IMarsRover> marsRoversList = new ArrayList<>();
         HashMap<Integer, ArrayList<ICommand>> instructionsSet = new HashMap<>();
         try {
             Plateau plateau = decodePlateau(scanner, loggerOutput);
@@ -40,7 +42,7 @@ public class Decoder implements IDecoder {
         return decodedPlateau;
     }
 
-    private void decodeRoversAndInstructions(Scanner scanner, ArrayList<MarsRover> marsRoversList, HashMap<Integer, ArrayList<ICommand>> instructionsSet, ILoggerOutput loggerOutput) {
+    private void decodeRoversAndInstructions(Scanner scanner, ArrayList<IMarsRover> marsRoversList, HashMap<Integer, ArrayList<ICommand>> instructionsSet, ILoggerOutput loggerOutput) {
         int rovId = 1;
         int xPos;
         int yPos;
@@ -75,24 +77,27 @@ public class Decoder implements IDecoder {
         return commands;
     }
 
-    public static class Data {
+    public static class Data implements IData {
         private final Plateau plateau;
-        private final ArrayList<MarsRover> marsRovers;
+        private final ArrayList<IMarsRover> marsRovers;
         private final Map<Integer, ArrayList<ICommand>> roverInstructionSet;
 
+        @Override
         public Plateau getPlateau() {
             return plateau;
         }
 
-        public ArrayList<MarsRover> getMarsRovers() {
+        @Override
+        public ArrayList<IMarsRover> getMarsRovers() {
             return marsRovers;
         }
 
+        @Override
         public Map<Integer, ArrayList<ICommand>> getRoverInstructionSet() {
             return roverInstructionSet;
         }
 
-        public Data(Plateau plateau, ArrayList<MarsRover> marsRovers, Map<Integer, ArrayList<ICommand>> roverInstructionSet) {
+        public Data(Plateau plateau, ArrayList<IMarsRover> marsRovers, Map<Integer, ArrayList<ICommand>> roverInstructionSet) {
             this.plateau = plateau;
             this.marsRovers = marsRovers;
             this.roverInstructionSet = roverInstructionSet;
