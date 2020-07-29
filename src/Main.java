@@ -1,5 +1,8 @@
 import controller.Controller;
-import util.IOManager;
+import util.Decoder;
+import util.LoggerOutput;
+import util.OutputConsoleSystemOut;
+import util.Simulator;
 import view.MainMenuView;
 
 public class Main {
@@ -13,12 +16,14 @@ public class Main {
     }
 
     private static void initView() {
-        new MainMenuView(new Controller(new IOManager()));
+        MainMenuView mainMenuView = new MainMenuView();
+        Controller controller = new Controller(new Decoder(), new LoggerOutput(), new Simulator());
+        mainMenuView.setController(controller);
+        mainMenuView.runView();
     }
 
     private static void runWithoutView(String instructions) {
-        Controller controller = new Controller(new IOManager());
-        controller.performMovementsIntoPlateau(instructions);
-        System.out.println(controller.getRoverByIndex(0).getOrientedPosition().toJsonString());
+        Controller controller = new Controller(new Decoder(), new LoggerOutput(), new Simulator());
+        controller.performMovementsIntoPlateau(instructions, new OutputConsoleSystemOut());
     }
 }

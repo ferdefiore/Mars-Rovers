@@ -1,55 +1,25 @@
 package controller;
 
-import entities.MarsRover;
-import entities.Plateau;
-import entities.commands.ICommand;
-import util.IOManager;
-
-import java.util.ArrayList;
-import java.util.Map;
+import util.*;
 
 public class Controller {
-    private Plateau marsPlateau;
-    private ArrayList<MarsRover> marsRovers;
-    private Map<Integer, ArrayList<ICommand>> roverInstructionSet;
-    private IOManager ioManager;
-    private String expeditionLog = "";
+    private final IDecoder decoder;
+    private final ILoggerOutput loggerOutput;
+    private final ISimulator simulator;
 
-    public Controller(IOManager ioManager) {
-        this.ioManager = ioManager;
+    public Controller(IDecoder decoder, ILoggerOutput loggerOutput, ISimulator simulator) {
+        this.decoder = decoder;
+        this.loggerOutput = loggerOutput;
+        this.simulator = simulator;
     }
 
-    public void performMovementsIntoPlateau(String str) {
-
-        if (ioManager.decodeInput(str)) {
-            initData();
-            for (MarsRover rover : marsRovers) {
-                try {
-                    rover.executeCommands(roverInstructionSet.get(rover.getRoverId()), marsPlateau);
-                    ioManager.appendToExpeditionLog(rover.toString());
-                } catch (Exception e) {
-                    ioManager.appendToExpeditionLog(e.getMessage());
-                }
-            }
+    public void performMovementsIntoPlateau(String str, IOutput iOutput) {
+        Decoder.Data inputData;
+        inputData = decoder.decodeInput(str, loggerOutput);
+        if (inputData != null) {
+            simulator.run(inputData, loggerOutput);
         }
+        iOutput.exposeResults(loggerOutput, inputData);
     }
 
-    private void initData() {
-        marsPlateau = ioManager.getDecodedPlateau();
-        marsRovers = ioManager.getMarsRovers();
-        roverInstructionSet = ioManager.getRoverInstructionSet();
-    }
-
-    public MarsRover getRoverByIndex(int index) {
-        return marsRovers.get(index);
-    }
-
-    public String getOutputLog() {
-        return ioManager.getInstructionsLog() + ioManager.getExpeditionLog();
-    }
-
-    public void viewDisposed() {
-        ioManager.clearData();
-        ioManager.clearLogs();
-    }
 }

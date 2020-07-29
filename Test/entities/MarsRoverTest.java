@@ -1,10 +1,10 @@
 package entities;
 
+import entities.commands.CommandFactory;
 import entities.commands.ICommand;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import util.CharToIComandMapper;
 
 import java.util.ArrayList;
 
@@ -27,7 +27,7 @@ class MarsRoverTest {
         ArrayList<ICommand> commands = new ArrayList<>();
         String validSequenceOfMovements = "LMLMLMLMM";
         for (char c : validSequenceOfMovements.toCharArray()) {
-            commands.add(CharToIComandMapper.charToCommand.get(c));
+            commands.add(CommandFactory.charToCommand.get(c));
         }
         marsRover1.executeCommands(commands, marsPlateau);
         Assertions.assertEquals(expectedPosition, marsRover1.getOrientedPosition());
@@ -38,7 +38,7 @@ class MarsRoverTest {
         ArrayList<ICommand> commands = new ArrayList<>();
         String invalidSequenceOfMovements = "LMLMLMLMMMMMMMM";
         for (char c : invalidSequenceOfMovements.toCharArray()) {
-            commands.add(CharToIComandMapper.charToCommand.get(c));
+            commands.add(CommandFactory.charToCommand.get(c));
         }
         Assertions.assertThrows(IllegalStateException.class, () -> marsRover1.executeCommands(commands, marsPlateau));
     }

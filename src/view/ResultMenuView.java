@@ -1,10 +1,6 @@
 package view;
 
-import controller.Controller;
-
 import javax.swing.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 public class ResultMenuView {
     private JFrame frame;
@@ -13,7 +9,7 @@ public class ResultMenuView {
     private JTextArea inputArea;
     private JButton closeButton;
 
-    public ResultMenuView(Controller nasaController) {
+    public ResultMenuView(String output) {
         frame = new JFrame("Nasa Control Center");
         frame.setSize(800, 600);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -22,15 +18,16 @@ public class ResultMenuView {
         frame.setResizable(false);
         frame.setVisible(true);
 
-        inputArea.append(nasaController.getOutputLog());
+        inputArea.append(output);
 
         closeButton.addActionListener(e -> frame.dispose());
 
-        frame.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosed(WindowEvent e) {
-                nasaController.viewDisposed();
-            }
-        });
+//        frame.addWindowListener(new WindowAdapter() {
+//            @Override
+//            public void windowClosed(WindowEvent e) {
+//                nasaController.viewDisposed();
+//            }
+//        });
     }
+
 }

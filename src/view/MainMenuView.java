@@ -1,13 +1,16 @@
 package view;
 
 import controller.Controller;
+import util.Decoder;
+import util.ILoggerOutput;
+import util.IOutput;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class MainMenuView {
+public class MainMenuView implements IOutput {
     private JFrame frame;
     private JPanel panel;
     private JTextArea inputArea;
@@ -15,8 +18,9 @@ public class MainMenuView {
     private JTextPane InputInstructions;
     private JLabel marsRover_label;
     private String exampleMessage = "Example: \n\n 5 5 (Plateau dimension) \n 1 2 N (Rover initial position) \n LMLMLMLMM (Instruction set)";
+    Controller controller;
 
-    public MainMenuView(Controller nasaControlCenter) {
+    public void runView() {
         frame = new JFrame("Nasa Control Center");
         frame.setSize(600, 500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,8 +55,16 @@ public class MainMenuView {
 
         sendCommandButton.addActionListener(e -> {
             String instructionSet = inputArea.getText();
-            nasaControlCenter.performMovementsIntoPlateau(instructionSet);
-            new ResultMenuView(nasaControlCenter);
+            controller.performMovementsIntoPlateau(instructionSet, this);
         });
+    }
+
+    @Override
+    public void exposeResults(ILoggerOutput loggerOutput, Decoder.Data inputData) {
+        new ResultMenuView(loggerOutput.getOutput());
+    }
+
+    public void setController(Controller controller) {
+        this.controller = controller;
     }
 }
