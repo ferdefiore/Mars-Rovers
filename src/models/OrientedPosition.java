@@ -3,7 +3,7 @@ package models;
 import entities.CompassPoint;
 
 /**
- * Class that represent a position and location by a combination of three attributes.
+ * Class that represents a position and location by a combination of three attributes.
  * Two int X and Y, as coordinates. And a Cardinal point representing one of the cardinal compass points in the enum CompassPoint.
  *
  * @see CompassPoint

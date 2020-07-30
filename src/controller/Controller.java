@@ -9,7 +9,7 @@ import interfaces.*;
  */
 public class Controller {
     /**
-     * IDecoder used to decode input instruction set
+     * IDecoder used to decode the input instruction set
      */
     private final IDecoder decoder;
     /**

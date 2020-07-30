@@ -76,7 +76,7 @@ public class MarsRover implements IMarsRover {
     }
 
     /**
-     * Method that checks if the actual position of the rover is valid, by checking the limits of the plateau.
+     * A method that checks if the actual position of the rover is valid, by checking the limits of the plateau.
      * If any coordinate of the rover is outside the plateau limits, it throws an IllegalStateException.
      *
      * @param plateau Plateau in which Mars Rover will navigate
@@ -91,8 +91,8 @@ public class MarsRover implements IMarsRover {
     }
 
     /**
-     * Method that executes a "Move forward" command and changes the position of the Mars Rover.
-     * This evaluates the current cardinal point of the rover and act in consequence modifying his coordinates.
+     * A method that executes a "Move forward" command and changes the position of the Mars Rover.
+     * This evaluates the current cardinal point of the rover and acts in consequence modifying his coordinates.
      */
     @Override
     public void moveForward() {
@@ -122,7 +122,7 @@ public class MarsRover implements IMarsRover {
     }
 
     /**
-     * Method that executes a "turnLeft" command changing the position of the Mars Rover.
+     * A method that executes a "turnLeft" command changing the position of the Mars Rover.
      * This method modifies the rover's orientation depending on the actual orientation.
      */
     @Override

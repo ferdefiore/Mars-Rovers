@@ -17,7 +17,6 @@ import java.util.Scanner;
 /**
  * This class implements IDecoder
  * This class represents a decoder used to read the input information
- *
  * @see IDecoder
  */
 public class Decoder implements IDecoder {
@@ -57,7 +56,7 @@ public class Decoder implements IDecoder {
     }
 
     /**
-     * Private method to decode from the input String the Rovers and Instructions set for each rover
+     * Private method to decode from the input String, the Rovers and Instructions set for each rover
      */
     private void decodeRoversAndInstructions(Scanner scanner, ArrayList<IMarsRover> marsRoversList, HashMap<Integer, ArrayList<ICommand>> instructionsSet, ILoggerOutput loggerOutput) {
         int rovId = 1;
@@ -87,7 +86,7 @@ public class Decoder implements IDecoder {
     /**
      * Private method that iterates every char in a String, and return the
      * corresponded list of ICommand for that string. If some char of the string
-     * not matches with a Command it will throw an IllegalArgumentException
+     * does not match with a Command it will throw an IllegalArgumentException
      */
     private ArrayList<ICommand> stringToICommandList(String str) {
         ArrayList<ICommand> commands = new ArrayList<>();

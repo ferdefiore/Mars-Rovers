@@ -1,7 +1,7 @@
 package interfaces;
 
 /**
- * This interface should provide behaviour to read information in a input string,
+ * This interface should provide behavior to read the information in an input string,
  * log the decoding results and return the decoded data.
  */
 public interface IDecoder {

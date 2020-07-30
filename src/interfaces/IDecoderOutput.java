@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.Map;
 
 /**
- * This interface provides behaviour to access to an expedition information.
- * Also, it should implements equals.
+ * This interface provides behavior to access to expedition information.
+ * Also, it should implement equals.
  */
 public interface IDecoderOutput {
     /**

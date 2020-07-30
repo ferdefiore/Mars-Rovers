@@ -79,7 +79,7 @@ public enum CompassPoint {
     public abstract CompassPoint turn90DegreeRight();
 
     /**
-     * Each possible Compass Point can execute this method to calculate a new cardinal point after performing a 90 degree turn right from the actual cp.
+     * Each possible Compass Point can execute this method to calculate a new cardinal point after performing a 90 degree turn left from the actual cp.
      *
      * @return Returns the resultant Cardinal Point
      */

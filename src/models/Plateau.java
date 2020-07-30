@@ -2,7 +2,7 @@ package models;
 
 /**
  * This class represents a plateau. This Plateau must have positive limits.
- * The plateau dimensions are represented with two int as Width and Height.
+ * The plateau dimensions are represented with two ints as Width and Height.
  * Both of them are the maximum value and represent the upper-right coordinates of the plateau.
  */
 public class Plateau {
@@ -19,7 +19,7 @@ public class Plateau {
 
     /**
      * Plateau Constructor class.
-     * This method check the limits of the plateau after creating it. If one of them is negative, it throw an IllegalArgumentException.
+     * This method checks the limits of the plateau after creating it. If one of them is negative, it throws an IllegalArgumentException.
      *
      * @param plateauMaxWidth  Int that represents the maximum width value of the plateau
      * @param plateauMaxHeight Int that represents the maximum height value of the plateau

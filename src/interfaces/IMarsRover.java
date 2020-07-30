@@ -22,7 +22,7 @@ public interface IMarsRover {
     OrientedPosition getOrientedPosition();
 
     /**
-     * Method used to perform movements by Mars Rover in a specific plateau.
+     * A method used to perform movements by Mars Rover in a specific plateau.
      * This method should change the Rover's OrientedPosition after running the commands.
      * Each rover should verify that the movements don't make him fall out the plateau.
      *
