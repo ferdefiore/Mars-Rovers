@@ -6,7 +6,8 @@ import interfaces.ILoggerOutput;
 import interfaces.IOutput;
 
 /**
- * This class represents an IOutput and is used to share information about one rover expedition
+ * This class implements IOutput
+ * This class is used to share information about one rover expedition
  * into System.out as require the backend application
  */
 public class OutputConsoleSystemOut implements IOutput {

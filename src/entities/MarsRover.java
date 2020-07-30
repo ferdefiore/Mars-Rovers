@@ -6,8 +6,8 @@ import interfaces.IMarsRover;
 import java.util.ArrayList;
 
 /**
+ * This class implements the interface IMarsRover.
  * The MarsRover class represents a robotic rover who has an identifier and an OrientedPosition.
- * This class implements the interface IMarsRover so it implement his methods.
  *
  * @see OrientedPosition
  */

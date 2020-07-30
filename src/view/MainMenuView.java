@@ -10,6 +10,18 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+/**
+ * This class implements IOutput
+ * View Class to show the first screen menu UI and interact with the user.
+ * Here the user place the string with the input. After the user perform a click in the send command button,
+ * this view inform to the controller the user action.
+ * The controller act in consequence and them by IOutput method exposeResults expose the expedition output
+ * results, used to create the second view.
+ *
+ * @see IOutput
+ * @see Controller
+ * @see ResultMenuView
+ */
 public class MainMenuView implements IOutput {
     private static final String INPUT_EXAMPLE_MSG = "Example: \n\n 5 5 (Plateau dimension) \n 1 2 N (Rover initial position) \n LMLMLMLMM (Instruction set)";
     private static final String EMPTY = "";

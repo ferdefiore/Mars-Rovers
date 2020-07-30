@@ -17,7 +17,10 @@ import java.util.Map;
 import java.util.Scanner;
 
 /**
+ * This class implements IDecoder
  * This class represents a decoder used to read the input information
+ *
+ * @see IDecoder
  */
 public class Decoder implements IDecoder {
 
@@ -99,7 +102,10 @@ public class Decoder implements IDecoder {
     }
 
     /**
-     * InnerClass used to return the decoded information
+     * InnerClass used to return the decoded information.
+     * As this class is only created here, that's why its placed as InnerClass
+     * This class implements IDecoderOutput
+     * @see IDecoderOutput
      */
     public static class DecoderOutput implements IDecoderOutput {
         /**

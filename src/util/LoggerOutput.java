@@ -4,7 +4,9 @@ package util;
 import interfaces.ILoggerOutput;
 
 /**
- * This class represents a logger that save every log. It expose method to every possible message to append to the log,
+ * This class implements ILoggerOutput.
+ * It represents a logger that save every log message.
+ * It expose method to every possible message to append to the log,
  * and also have method to append unset messages and clear the log.
  */
 public class LoggerOutput implements ILoggerOutput {

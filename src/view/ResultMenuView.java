@@ -2,6 +2,12 @@ package view;
 
 import javax.swing.*;
 
+
+/**
+ * View Class to show the second screen frame UI.
+ * Here the user can't interact with the screen, its read only screen information
+ * where the output expedition log will be shown.
+ */
 public class ResultMenuView {
     private final static String TITLE = "Nasa Control Center";
     private JFrame frame;

@@ -5,6 +5,14 @@ import util.OutputConsoleSystemOut;
 import util.Simulator;
 import view.MainMenuView;
 
+/**
+ * Main class to launch the application.
+ * It has a little logic inside:
+ * If the user run the .Jar file this main will init the first screen view, showing to the user a UI that can interact with.
+ * If the .jar is invoked by the console, it will not start the UI screen. However it will run with the input information
+ * placed in the first String[] args. Then a call to System.out.print will be performed by OutputConsoleSystemOut
+ * to show the results to whom it will wait for it.
+ */
 public class Main {
 
     public static void main(String[] args) {
