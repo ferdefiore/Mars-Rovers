@@ -1,14 +1,9 @@
 package entities;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class CompassPointTest {
-
-    @BeforeEach
-    void setUp() {
-    }
 
     @Test
     void whenNorthTurn90LeftAndGetNextCardinalPoint() {

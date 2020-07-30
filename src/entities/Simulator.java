@@ -18,7 +18,7 @@ public class Simulator implements ISimulator {
      * Method to execute commands in the rovers
      *
      * @param inputIDecoderOutput with the required information to move rovers. It has the plateau, the rovers and the commands
-     * @param logger logger used to write the output log
+     * @param logger              logger used to write the output log
      * @see IDecoderOutput
      * @see ILoggerOutput
      */

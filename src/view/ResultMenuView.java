@@ -10,7 +10,7 @@ import javax.swing.*;
  */
 public class ResultMenuView {
     private final static String TITLE = "Nasa Control Center";
-    private JFrame frame;
+    private final JFrame frame;
     private JPanel panel;
     private JLabel marsRover_label;
     private JTextArea inputArea;

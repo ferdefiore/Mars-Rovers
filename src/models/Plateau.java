@@ -1,4 +1,5 @@
 package models;
+
 /**
  * This class represents a plateau. This Plateau must have positive limits.
  * The plateau dimensions are represented with two int as Width and Height.
@@ -18,7 +19,7 @@ public class Plateau {
 
     /**
      * Plateau Constructor class.
-     * This method check the limits of the plateau after creating it. If one of them is negative, it throw an IllegalArgumentExeption.
+     * This method check the limits of the plateau after creating it. If one of them is negative, it throw an IllegalArgumentException.
      *
      * @param plateauMaxWidth  Int that represents the maximum width value of the plateau
      * @param plateauMaxHeight Int that represents the maximum height value of the plateau

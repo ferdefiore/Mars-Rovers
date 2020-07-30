@@ -1,4 +1,5 @@
 package interfaces;
+
 /**
  * This class provides behaviour to save messages in a log.
  * It expose method to every possible message to append to the log,

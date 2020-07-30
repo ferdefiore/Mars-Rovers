@@ -183,7 +183,8 @@ class DecoderTest {
             }
         };
         Decoder decoder = new Decoder();
-        IDecoderOutput decoderOutputResult = decoder.decodeInput("5 5 1 2 N LMLMLMLMM 3 3 E MMRMMRMRRM", iLoggerOutput);
+        String inputString = "5 5 1 2 N LMLMLMLMM 3 3 E MMRMMRMRRM";
+        IDecoderOutput decoderOutputResult = decoder.decodeInput(inputString, iLoggerOutput);
         Assertions.assertEquals(iDecoderOutputExpected, decoderOutputResult);
         Assertions.assertEquals(iDecoderOutputExpected.getPlateau(), decoderOutputResult.getPlateau());
         Assertions.assertEquals(iDecoderOutputExpected.getMarsRovers(), decoderOutputResult.getMarsRovers());
@@ -477,7 +478,8 @@ class DecoderTest {
             }
         };
         Decoder decoder = new Decoder();
-        decoder.decodeInput("5 5 1 3 N LMLMLMLMM", iLoggerOutput);
+        String inputString = "5 5 1 3 N LMLMLMLMM";
+        decoder.decodeInput(inputString, iLoggerOutput);
         int[] finalCalls = {1, 1, 1, 1, 1, 1};
         for (int i = 0; i < finalCalls.length; i++) {
             Assertions.assertEquals(finalCalls[i], callCounter[i]);
@@ -547,7 +549,8 @@ class DecoderTest {
             }
         };
         Decoder decoder = new Decoder();
-        decoder.decodeInput("5 5 1 3 N LMLMTLMLMM", iLoggerOutput);
+        String inputString = "5 5 1 3 N LMLMTLMLMM";
+        decoder.decodeInput(inputString, iLoggerOutput);
         int[] finalCalls = {1, 1, 1, 1, 0, 0};
         for (int i = 0; i < finalCalls.length; i++) {
             Assertions.assertEquals(finalCalls[i], callCounter[i]);

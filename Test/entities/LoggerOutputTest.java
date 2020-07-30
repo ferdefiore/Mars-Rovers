@@ -28,16 +28,13 @@ class LoggerOutputTest {
     private final String ROVERS_OUTPUT = "*******************************MARS ROVERS OUTPUT INFORMATION********************************* \n\n";
     private final String INPUT_ERROR = "*****************THE ROVERS CANT START NAVIGATION BECAUSE OF SOME INPUT ERROR***************** \n\n";
     private ILoggerOutput loggerOutput;
-    IMarsRover marsRover = new MarsRover(1, new OrientedPosition(1, 1, CompassPoint.N));
+    final IMarsRover marsRover = new MarsRover(1, new OrientedPosition(1, 1, CompassPoint.N));
 
     @BeforeEach
     void setUp() {
         loggerOutput = new LoggerOutput();
     }
 
-    @Test
-    void getOutput() {
-    }
 
     @Test
     void appendSimpleMessage() {

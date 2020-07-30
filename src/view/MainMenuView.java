@@ -31,7 +31,7 @@ public class MainMenuView implements IOutput {
     private JButton sendCommandButton;
     private JTextPane InputInstructions;
     private JLabel marsRover_label;
-    private String exampleMessage = INPUT_EXAMPLE_MSG;
+    private final String exampleMessage = INPUT_EXAMPLE_MSG;
     Controller controller;
 
     public void runView() {

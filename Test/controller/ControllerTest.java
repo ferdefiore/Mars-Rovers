@@ -1,11 +1,10 @@
-
 package controller;
 
+import entities.Decoder;
 import interfaces.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import util.Decoder;
 
 class ControllerTest {
 

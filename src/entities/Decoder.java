@@ -103,6 +103,7 @@ public class Decoder implements IDecoder {
      * InnerClass used to return the decoded information.
      * As this class is only created here, that's why its placed as InnerClass
      * This class implements IDecoderOutput
+     *
      * @see IDecoderOutput
      */
     public static class DecoderOutput implements IDecoderOutput {
