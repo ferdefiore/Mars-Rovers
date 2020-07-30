@@ -3,6 +3,8 @@ package entities;
 import entities.commands.CommandFactory;
 import entities.commands.ICommand;
 import interfaces.IMarsRover;
+import models.OrientedPosition;
+import models.Plateau;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,14 +23,6 @@ class MarsRoverTest {
         plateau = new Plateau(5, 5);
         marsRover1 = new MarsRover(1, new OrientedPosition(1, 2, CompassPoint.N));
     }
-
-//    @Test
-//    void executeCommand(){
-//        ArrayList<ICommand> commands = new ArrayList<>();
-//        ICommand iCommand = marsRover -> Assertions.assertEquals(marsRover, marsRover1);
-//        commands.add(iCommand);
-//        marsRover1.executeCommands(commands, plateau);
-//    }
 
     @Test
     void executeCommandsSuccess() {

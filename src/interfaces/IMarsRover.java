@@ -1,8 +1,8 @@
 package interfaces;
 
-import entities.OrientedPosition;
-import entities.Plateau;
 import entities.commands.ICommand;
+import models.OrientedPosition;
+import models.Plateau;
 
 import java.util.ArrayList;
 

@@ -1,8 +1,8 @@
 package entities.commands;
 
-import entities.OrientedPosition;
-import entities.Plateau;
 import interfaces.IMarsRover;
+import models.OrientedPosition;
+import models.Plateau;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -60,12 +60,12 @@ class LeftCommandTest {
     @Test
     void equalTypeFalse() {
         RightCommand rightCommand = new RightCommand();
-        Assertions.assertTrue(leftCommand.equalType(rightCommand));
+        Assertions.assertFalse(leftCommand.equalType(rightCommand));
     }
 
     @Test
     void equalTypeTrue() {
         LeftCommand anotherLeftCommand = new LeftCommand();
-        Assertions.assertFalse(this.leftCommand.equalType(anotherLeftCommand));
+        Assertions.assertTrue(this.leftCommand.equalType(anotherLeftCommand));
     }
 }

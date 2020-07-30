@@ -1,8 +1,8 @@
 package entities.commands;
 
-import entities.OrientedPosition;
-import entities.Plateau;
 import interfaces.IMarsRover;
+import models.OrientedPosition;
+import models.Plateau;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

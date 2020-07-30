@@ -1,9 +1,5 @@
-package util;
+package entities;
 
-import entities.CompassPoint;
-import entities.MarsRover;
-import entities.OrientedPosition;
-import entities.Plateau;
 import entities.commands.ICommand;
 import entities.commands.LeftCommand;
 import entities.commands.MoveCommand;
@@ -11,6 +7,8 @@ import entities.commands.RightCommand;
 import interfaces.IDecoderOutput;
 import interfaces.ILoggerOutput;
 import interfaces.IMarsRover;
+import models.OrientedPosition;
+import models.Plateau;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

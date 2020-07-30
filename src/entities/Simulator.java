@@ -1,4 +1,4 @@
-package util;
+package entities;
 
 import interfaces.IDecoderOutput;
 import interfaces.ILoggerOutput;

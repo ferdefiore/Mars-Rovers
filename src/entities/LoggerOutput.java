@@ -1,4 +1,4 @@
-package util;
+package entities;
 
 
 import interfaces.ILoggerOutput;
@@ -63,7 +63,7 @@ public class LoggerOutput implements ILoggerOutput {
      * Method to append a success decoded message and plateau information
      *
      * @param plateauToString Plateau information
-     * @see entities.Plateau
+     * @see models.Plateau
      */
     @Override
     public void appendPlateauSuccess(String plateauToString) {

@@ -1,8 +1,8 @@
 import controller.Controller;
-import util.Decoder;
-import util.LoggerOutput;
-import util.OutputConsoleSystemOut;
-import util.Simulator;
+import entities.Decoder;
+import entities.LoggerOutput;
+import entities.OutputConsoleSystemOut;
+import entities.Simulator;
 import view.MainMenuView;
 
 /**

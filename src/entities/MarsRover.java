@@ -2,6 +2,8 @@ package entities;
 
 import entities.commands.ICommand;
 import interfaces.IMarsRover;
+import models.OrientedPosition;
+import models.Plateau;
 
 import java.util.ArrayList;
 

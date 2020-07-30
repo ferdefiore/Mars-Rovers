@@ -1,4 +1,6 @@
-package entities;
+package models;
+
+import entities.CompassPoint;
 
 /**
  * Class that represent a position and location by a combination of three attributes.

@@ -1,4 +1,4 @@
-package entities;
+package models;
 /**
  * This class represents a plateau. This Plateau must have positive limits.
  * The plateau dimensions are represented with two int as Width and Height.

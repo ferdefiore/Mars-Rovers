@@ -1,7 +1,7 @@
 package interfaces;
 
-import entities.Plateau;
 import entities.commands.ICommand;
+import models.Plateau;
 
 import java.util.ArrayList;
 import java.util.Map;

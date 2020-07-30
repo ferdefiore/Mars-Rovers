@@ -1,9 +1,9 @@
-package util;
+package entities;
 
-import entities.OrientedPosition;
 import interfaces.IDecoderOutput;
 import interfaces.ILoggerOutput;
 import interfaces.IOutput;
+import models.OrientedPosition;
 
 /**
  * This class implements IOutput

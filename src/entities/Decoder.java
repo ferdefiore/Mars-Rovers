@@ -1,15 +1,13 @@
-package util;
+package entities;
 
-import entities.CompassPoint;
-import entities.MarsRover;
-import entities.OrientedPosition;
-import entities.Plateau;
 import entities.commands.CommandFactory;
 import entities.commands.ICommand;
 import interfaces.IDecoder;
 import interfaces.IDecoderOutput;
 import interfaces.ILoggerOutput;
 import interfaces.IMarsRover;
+import models.OrientedPosition;
+import models.Plateau;
 
 import java.util.ArrayList;
 import java.util.HashMap;

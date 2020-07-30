@@ -1,11 +1,9 @@
-package util;
+package entities;
 
-import entities.CompassPoint;
-import entities.MarsRover;
-import entities.OrientedPosition;
-import entities.Plateau;
 import interfaces.ILoggerOutput;
 import interfaces.IMarsRover;
+import models.OrientedPosition;
+import models.Plateau;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
