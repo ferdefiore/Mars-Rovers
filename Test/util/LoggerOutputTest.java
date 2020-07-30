@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 class LoggerOutputTest {
 
     private static final String TEST = "TEST";
+    private static final String EMPTY = "";
 
     //logger constants
     private final String LINE = "\n";
@@ -94,5 +95,12 @@ class LoggerOutputTest {
     void appendRoverFinalPosition() {
         loggerOutput.appendRoverFinalPosition(marsRover.toString());
         Assertions.assertEquals(marsRover.toString() + LINE, loggerOutput.getOutput());
+    }
+
+    @Test
+    void clearResults() {
+        loggerOutput.appendSimpleMessage(TEST);
+        loggerOutput.clearResults();
+        Assertions.assertEquals(loggerOutput.getOutput(), EMPTY);
     }
 }

@@ -55,10 +55,11 @@ public class Decoder implements IDecoder {
         while (scanner.hasNext()) {
             xPos = scanner.nextInt();
             yPos = scanner.nextInt();
-            facingCardinalPoint = CompassPoint.valueOf(scanner.next());
+            facingCardinalPoint = CompassPoint.valueOf(scanner.next().toUpperCase());
             marsRoversList.add(new MarsRover(rovId, new OrientedPosition(xPos, yPos, facingCardinalPoint)));
             loggerOutput.appendDecodedRover(marsRoversList.get(rovId - 1).toString());
             instructionsAsString = scanner.next();
+            instructionsAsString = instructionsAsString.toUpperCase();
             instructionsSet.put(rovId, stringToICommandList(instructionsAsString));
             loggerOutput.appendInstructions(instructionsAsString);
             rovId++;

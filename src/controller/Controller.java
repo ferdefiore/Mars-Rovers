@@ -20,6 +20,7 @@ public class Controller {
             simulator.run(inputIDecoderOutput, loggerOutput);
         }
         iOutput.exposeResults(loggerOutput, inputIDecoderOutput);
+        loggerOutput.clearResults();
     }
 
 }

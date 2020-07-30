@@ -119,6 +119,11 @@ class SimulatorTest {
             @Override
             public void appendSimpleMessage(String message) {
             }
+
+            @Override
+            public void clearResults() {
+
+            }
         };
 
         Simulator simulator = new Simulator();
@@ -225,6 +230,11 @@ class SimulatorTest {
             @Override
             public void appendSimpleMessage(String message) {
                 c[0]++;
+            }
+
+            @Override
+            public void clearResults() {
+
             }
         };
 

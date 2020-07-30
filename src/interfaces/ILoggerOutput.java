@@ -20,4 +20,6 @@ public interface ILoggerOutput {
     void appendRoverFinalPosition(String roverToString);
 
     void appendSimpleMessage(String message);
+
+    void clearResults();
 }

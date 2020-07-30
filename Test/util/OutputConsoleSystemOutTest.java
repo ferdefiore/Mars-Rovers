@@ -75,6 +75,10 @@ class OutputConsoleSystemOutTest {
 
         ILoggerOutput iLoggerOutput = new ILoggerOutput() {
             @Override
+            public void clearResults() {
+            }
+
+            @Override
             public String getOutput() {
                 return null;
             }

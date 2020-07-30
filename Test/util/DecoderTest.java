@@ -75,6 +75,11 @@ class DecoderTest {
             public void appendSimpleMessage(String message) {
 
             }
+
+            @Override
+            public void clearResults() {
+
+            }
         };
         Decoder decoder = new Decoder();
         decoder.decodeInput(EMPTY, iLoggerOutput);
@@ -174,6 +179,10 @@ class DecoderTest {
             public void appendSimpleMessage(String message) {
 
             }
+
+            @Override
+            public void clearResults() {
+            }
         };
         Decoder decoder = new Decoder();
         IDecoderOutput decoderOutputResult = decoder.decodeInput("5 5 1 2 N LMLMLMLMM 3 3 E MMRMMRMRRM", iLoggerOutput);
@@ -213,6 +222,10 @@ class DecoderTest {
         IDecoderOutput iDecoderOutputExpected = new Decoder.DecoderOutput(plateau, rovers, instructionsSet);
 
         ILoggerOutput iLoggerOutput = new ILoggerOutput() {
+            @Override
+            public void clearResults() {
+            }
+
             @Override
             public void appendStartMsg() {
             }
@@ -271,6 +284,10 @@ class DecoderTest {
         final boolean[] errorMsj = {false};
 
         ILoggerOutput iLoggerOutput = new ILoggerOutput() {
+            @Override
+            public void clearResults() {
+            }
+
             @Override
             public void appendStartMsg() {
                 callCounter[0]++;
@@ -338,6 +355,10 @@ class DecoderTest {
 
         ILoggerOutput iLoggerOutput = new ILoggerOutput() {
             @Override
+            public void clearResults() {
+            }
+
+            @Override
             public void appendStartMsg() {
                 callCounter[0]++;
             }
@@ -404,6 +425,10 @@ class DecoderTest {
 
         ILoggerOutput iLoggerOutput = new ILoggerOutput() {
             @Override
+            public void clearResults() {
+            }
+
+            @Override
             public void appendStartMsg() {
                 callCounter[0]++;
             }
@@ -469,6 +494,10 @@ class DecoderTest {
         final boolean[] errorMsj = {false};
 
         ILoggerOutput iLoggerOutput = new ILoggerOutput() {
+            @Override
+            public void clearResults() {
+            }
+
             @Override
             public void appendStartMsg() {
                 callCounter[0]++;

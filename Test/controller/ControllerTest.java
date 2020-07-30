@@ -64,6 +64,11 @@ class ControllerTest {
             public void appendSimpleMessage(String message) {
 
             }
+
+            @Override
+            public void clearResults() {
+
+            }
         };
     }
 

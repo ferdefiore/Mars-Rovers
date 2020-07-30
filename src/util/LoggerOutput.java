@@ -33,6 +33,11 @@ public class LoggerOutput implements ILoggerOutput {
     }
 
     @Override
+    public void clearResults() {
+        output = "";
+    }
+
+    @Override
     public void appendPlateauSuccess(String plateauToString) {
         output += PLATEAU_SUCCESS;
         output += plateauToString;
