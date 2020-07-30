@@ -7,7 +7,7 @@ public class LeftCommand implements ICommand {
     public void execute(IMarsRover marsRover) {
         marsRover.turnLeft();
     }
-
+    @Override
     public boolean equalType(ICommand command) {
         return (command instanceof LeftCommand);
     }

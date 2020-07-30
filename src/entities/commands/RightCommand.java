@@ -8,6 +8,7 @@ public class RightCommand implements ICommand {
         marsRover.turnRight();
     }
 
+    @Override
     public boolean equalType(ICommand command) {
         return (command instanceof RightCommand);
     }

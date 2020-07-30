@@ -85,7 +85,8 @@ public class Decoder implements IDecoder {
 
     /**
      * Private method that iterates every char in a String, and return the
-     * corresponded list of ICommand for that string
+     * corresponded list of ICommand for that string. If some char of the string
+     * not matches with a Command it will throw an IllegalArgumentException
      */
     private ArrayList<ICommand> stringToICommandList(String str) {
         ArrayList<ICommand> commands = new ArrayList<>();
@@ -128,7 +129,7 @@ public class Decoder implements IDecoder {
 
         /**
          * @return An ArrayList with IMarsRovers
-         * @See IMarsRovers
+         * @see IMarsRover
          */
         @Override
         public ArrayList<IMarsRover> getMarsRovers() {

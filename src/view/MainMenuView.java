@@ -11,13 +11,15 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class MainMenuView implements IOutput {
+    private static final String INPUT_EXAMPLE_MSG = "Example: \n\n 5 5 (Plateau dimension) \n 1 2 N (Rover initial position) \n LMLMLMLMM (Instruction set)";
+    private static final String EMPTY = "";
     private JFrame frame;
     private JPanel panel;
     private JTextArea inputArea;
     private JButton sendCommandButton;
     private JTextPane InputInstructions;
     private JLabel marsRover_label;
-    private String exampleMessage = "Example: \n\n 5 5 (Plateau dimension) \n 1 2 N (Rover initial position) \n LMLMLMLMM (Instruction set)";
+    private String exampleMessage = INPUT_EXAMPLE_MSG;
     Controller controller;
 
     public void runView() {
@@ -36,7 +38,7 @@ public class MainMenuView implements IOutput {
             @Override
             public void mouseEntered(MouseEvent e) {
                 if (inputArea.getText().equals(exampleMessage)) {
-                    inputArea.setText("");
+                    inputArea.setText(EMPTY);
                     inputArea.setForeground(Color.BLACK);
                     inputArea.setFocusable(true);
                 }

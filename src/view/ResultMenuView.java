@@ -3,6 +3,7 @@ package view;
 import javax.swing.*;
 
 public class ResultMenuView {
+    private final static String TITLE = "Nasa Control Center";
     private JFrame frame;
     private JPanel panel;
     private JLabel marsRover_label;
@@ -10,7 +11,8 @@ public class ResultMenuView {
     private JButton closeButton;
 
     public ResultMenuView(String output) {
-        frame = new JFrame("Nasa Control Center");
+
+        frame = new JFrame(TITLE);
         frame.setSize(800, 600);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.add(this.panel);
@@ -21,13 +23,6 @@ public class ResultMenuView {
         inputArea.append(output);
 
         closeButton.addActionListener(e -> frame.dispose());
-
-//        frame.addWindowListener(new WindowAdapter() {
-//            @Override
-//            public void windowClosed(WindowEvent e) {
-//                nasaController.viewDisposed();
-//            }
-//        });
     }
 
 }

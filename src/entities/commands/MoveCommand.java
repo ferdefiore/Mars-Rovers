@@ -7,7 +7,7 @@ public class MoveCommand implements ICommand {
     public void execute(IMarsRover marsRover) {
         marsRover.moveForward();
     }
-
+    @Override
     public boolean equalType(ICommand command) {
         return (command instanceof MoveCommand);
     }
