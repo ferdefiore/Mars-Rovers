@@ -84,21 +84,21 @@ class ControllerTest {
 
     @Test
     void performMovementsIntoPlateau() {
-        IData decoderIData = new Decoder.DecoderOutput(null, null, null);
+        IDecoderOutput iDecoderOutput = new Decoder.DecoderOutput(null, null, null);
 
         IDecoder iDecoder = (input, loggerOutput) -> {
             Assertions.assertEquals(input, EMPTY);
             Assertions.assertEquals(loggerOutput, iLoggerOutput);
-            return decoderIData;
+            return iDecoderOutput;
         };
 
         IOutput iOutput = (loggerOutput, inputData) -> {
             Assertions.assertEquals(iLoggerOutput, loggerOutput);
-            Assertions.assertEquals(decoderIData, inputData);
+            Assertions.assertEquals(iDecoderOutput, inputData);
         };
 
         ISimulator iSimulator = (inputData, logger) -> {
-            Assertions.assertEquals(inputData, decoderIData);
+            Assertions.assertEquals(inputData, iDecoderOutput);
             Assertions.assertEquals(logger, iLoggerOutput);
         };
 

@@ -3,7 +3,7 @@ package util;
 import entities.OrientedPosition;
 import entities.Plateau;
 import entities.commands.ICommand;
-import interfaces.IData;
+import interfaces.IDecoderOutput;
 import interfaces.ILoggerOutput;
 import interfaces.IMarsRover;
 import org.junit.jupiter.api.Assertions;
@@ -56,7 +56,7 @@ class SimulatorTest {
             }
         };
 
-        IData iData = new IData() {
+        IDecoderOutput iDecoderOutput = new IDecoderOutput() {
             @Override
             public Plateau getPlateau() {
                 return null;
@@ -122,7 +122,7 @@ class SimulatorTest {
         };
 
         Simulator simulator = new Simulator();
-        simulator.run(iData, iLoggerOutput);
+        simulator.run(iDecoderOutput, iLoggerOutput);
         Assertions.assertEquals(1, c[0]);
     }
 
@@ -163,7 +163,7 @@ class SimulatorTest {
             }
         };
 
-        IData iData = new IData() {
+        IDecoderOutput iDecoderOutput = new IDecoderOutput() {
             @Override
             public Plateau getPlateau() {
                 return null;
@@ -229,7 +229,7 @@ class SimulatorTest {
         };
 
         Simulator simulator = new Simulator();
-        simulator.run(iData, iLoggerOutput);
+        simulator.run(iDecoderOutput, iLoggerOutput);
         Assertions.assertEquals(1, c[0]);
     }
 }

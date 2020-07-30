@@ -4,7 +4,7 @@ import entities.CompassPoint;
 import entities.OrientedPosition;
 import entities.Plateau;
 import entities.commands.ICommand;
-import interfaces.IData;
+import interfaces.IDecoderOutput;
 import interfaces.ILoggerOutput;
 import interfaces.IMarsRover;
 import org.junit.jupiter.api.Assertions;
@@ -54,7 +54,7 @@ class OutputConsoleSystemOutTest {
             }
         };
 
-        IData iData = new IData() {
+        IDecoderOutput iDecoderOutput = new IDecoderOutput() {
             @Override
             public Plateau getPlateau() {
                 return null;
@@ -130,7 +130,7 @@ class OutputConsoleSystemOutTest {
         PrintStream originalOut = System.out;
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
-        outputConsoleSystemOut.exposeResults(iLoggerOutput, iData);
+        outputConsoleSystemOut.exposeResults(iLoggerOutput, iDecoderOutput);
         System.setOut(originalOut);
         String expected = "{\"xPos\" : 1, \"yPos\" : 1, \"compassPoint\" : \"N\"}";
         Assertions.assertEquals(expected, outContent.toString());

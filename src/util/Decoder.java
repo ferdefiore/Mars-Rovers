@@ -6,8 +6,8 @@ import entities.OrientedPosition;
 import entities.Plateau;
 import entities.commands.CommandFactory;
 import entities.commands.ICommand;
-import interfaces.IData;
 import interfaces.IDecoder;
+import interfaces.IDecoderOutput;
 import interfaces.ILoggerOutput;
 import interfaces.IMarsRover;
 
@@ -19,7 +19,7 @@ import java.util.Scanner;
 public class Decoder implements IDecoder {
 
     @Override
-    public IData decodeInput(String input, ILoggerOutput loggerOutput) {
+    public IDecoderOutput decodeInput(String input, ILoggerOutput loggerOutput) {
         Scanner scanner = new Scanner(input);
         ArrayList<IMarsRover> marsRoversList = new ArrayList<>();
         HashMap<Integer, ArrayList<ICommand>> instructionsSet = new HashMap<>();
@@ -72,12 +72,11 @@ public class Decoder implements IDecoder {
             if (CommandFactory.charToCommand.containsKey(c)) {
                 commands.add(CommandFactory.charToCommand.get(c));
             } else throw new IllegalArgumentException("Illegal argument " + c + " in instructions.");
-
         }
         return commands;
     }
 
-    public static class DecoderOutput implements IData {
+    public static class DecoderOutput implements IDecoderOutput {
         private final Plateau plateau;
         private final ArrayList<IMarsRover> marsRovers;
         private final Map<Integer, ArrayList<ICommand>> roverInstructionSet;
@@ -109,21 +108,24 @@ public class Decoder implements IDecoder {
             if (o == null || getClass() != o.getClass()) return false;
             DecoderOutput decoderOutput = (DecoderOutput) o;
 
-            boolean p = plateau.equals(decoderOutput.plateau);
-            boolean m = marsRovers.equals(decoderOutput.marsRovers);
-            if (roverInstructionSet.size() == decoderOutput.roverInstructionSet.size()) {
-                for (Integer key : roverInstructionSet.keySet()) {
-                    ArrayList<ICommand> r2command = decoderOutput.roverInstructionSet.get(key);
-                    int i = 0;
-                    for (ICommand command : roverInstructionSet.get(key)) {
-                        if (!command.equalType(r2command.get(i))) {
-                            return false;
-                        }
-                        i++;
+            boolean samePlateau = plateau.equals(decoderOutput.plateau);
+            boolean sameMarsRovers = marsRovers.equals(decoderOutput.marsRovers);
+
+            for (Integer key : roverInstructionSet.keySet()) {
+                if (roverInstructionSet.get(key).size() != decoderOutput.roverInstructionSet.get(key).size()) {
+                    return false;
+                }
+                ArrayList<ICommand> rover2Commands = decoderOutput.roverInstructionSet.get(key);
+                int i = 0;
+                for (ICommand command : roverInstructionSet.get(key)) {
+                    if (!command.equalType(rover2Commands.get(i))) {
+                        return false;
                     }
+                    i++;
                 }
             }
-            return (p && m);
+
+            return (samePlateau && sameMarsRovers);
         }
     }
 

@@ -1,7 +1,7 @@
 package view;
 
 import controller.Controller;
-import interfaces.IData;
+import interfaces.IDecoderOutput;
 import interfaces.ILoggerOutput;
 import interfaces.IOutput;
 
@@ -60,7 +60,7 @@ public class MainMenuView implements IOutput {
     }
 
     @Override
-    public void exposeResults(ILoggerOutput loggerOutput, IData inputIData) {
+    public void exposeResults(ILoggerOutput loggerOutput, IDecoderOutput inputIDecoderOutput) {
         new ResultMenuView(loggerOutput.getOutput());
     }
 

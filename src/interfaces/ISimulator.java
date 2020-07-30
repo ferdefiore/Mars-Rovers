@@ -1,5 +1,5 @@
 package interfaces;
 
 public interface ISimulator {
-    void run(IData inputIData, ILoggerOutput logger);
+    void run(IDecoderOutput inputIDecoderOutput, ILoggerOutput logger);
 }

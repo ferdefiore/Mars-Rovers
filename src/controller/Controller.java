@@ -14,12 +14,12 @@ public class Controller {
     }
 
     public void performMovementsIntoPlateau(String str, IOutput iOutput) {
-        IData inputIData;
-        inputIData = decoder.decodeInput(str, loggerOutput);
-        if (inputIData != null) {
-            simulator.run(inputIData, loggerOutput);
+        IDecoderOutput inputIDecoderOutput;
+        inputIDecoderOutput = decoder.decodeInput(str, loggerOutput);
+        if (inputIDecoderOutput != null) {
+            simulator.run(inputIDecoderOutput, loggerOutput);
         }
-        iOutput.exposeResults(loggerOutput, inputIData);
+        iOutput.exposeResults(loggerOutput, inputIDecoderOutput);
     }
 
 }

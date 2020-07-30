@@ -6,7 +6,7 @@ import entities.commands.ICommand;
 import java.util.ArrayList;
 import java.util.Map;
 
-public interface IData {
+public interface IDecoderOutput {
     Plateau getPlateau();
 
     ArrayList<IMarsRover> getMarsRovers();
