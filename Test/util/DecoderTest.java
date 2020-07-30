@@ -86,7 +86,7 @@ class DecoderTest {
 
         IMarsRover rover1 = new MarsRover(1, new OrientedPosition(1, 2, CompassPoint.N));
         IMarsRover rover2 = new MarsRover(2, new OrientedPosition(3, 3, CompassPoint.E));
-        ArrayList<IMarsRover> rovers = new ArrayList();
+        ArrayList<IMarsRover> rovers = new ArrayList<>();
         rovers.add(rover1);
         rovers.add(rover2);
 
@@ -119,7 +119,7 @@ class DecoderTest {
         instructionsSet.put(rover1.getRoverId(), iCommandsRover1);
         instructionsSet.put(rover2.getRoverId(), iCommandsRover2);
 
-        IData IDataExpected = new Decoder.Data(plateau, rovers, instructionsSet);
+        IData IDataExpected = new Decoder.DecoderOutput(plateau, rovers, instructionsSet);
         final int[] callCounter = {0, 0, 0, 0, 0, 0};
         final boolean[] errorMsj = {false};
 
@@ -176,7 +176,7 @@ class DecoderTest {
         };
         Decoder decoder = new Decoder();
         IData result = decoder.decodeInput("5 5 1 2 N LMLMLMLMM 3 3 E MMRMMRMRRM", iLoggerOutput);
-        Assertions.assertTrue(IDataExpected.equals(result));
+        Assertions.assertEquals(IDataExpected, result);
         int[] finalCalls = {1, 1, 1, 2, 2, 1};
         for (int i = 0; i < finalCalls.length; i++) {
             Assertions.assertEquals(finalCalls[i], callCounter[i]);
@@ -186,7 +186,6 @@ class DecoderTest {
 
     @Test
     void decodeInput1PlateauNoRoverNoInstruction() {
-
         final int[] callCounter = {0, 0, 0, 0, 0, 0};
         final boolean[] errorMsj = {false};
 

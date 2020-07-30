@@ -84,7 +84,7 @@ class ControllerTest {
 
     @Test
     void performMovementsIntoPlateau() {
-        IData decoderIData = new Decoder.Data(null, null, null);
+        IData decoderIData = new Decoder.DecoderOutput(null, null, null);
 
         IDecoder iDecoder = (input, loggerOutput) -> {
             Assertions.assertEquals(input, EMPTY);

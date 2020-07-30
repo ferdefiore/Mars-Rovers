@@ -26,7 +26,7 @@ public class Decoder implements IDecoder {
         try {
             Plateau plateau = decodePlateau(scanner, loggerOutput);
             decodeRoversAndInstructions(scanner, marsRoversList, instructionsSet, loggerOutput);
-            return new Data(plateau, marsRoversList, instructionsSet);
+            return new DecoderOutput(plateau, marsRoversList, instructionsSet);
         } catch (Exception e) {
             loggerOutput.appendErrorMsg();
             return null;
@@ -77,7 +77,7 @@ public class Decoder implements IDecoder {
         return commands;
     }
 
-    public static class Data implements IData {
+    public static class DecoderOutput implements IData {
         private final Plateau plateau;
         private final ArrayList<IMarsRover> marsRovers;
         private final Map<Integer, ArrayList<ICommand>> roverInstructionSet;
@@ -97,7 +97,7 @@ public class Decoder implements IDecoder {
             return roverInstructionSet;
         }
 
-        public Data(Plateau plateau, ArrayList<IMarsRover> marsRovers, Map<Integer, ArrayList<ICommand>> roverInstructionSet) {
+        public DecoderOutput(Plateau plateau, ArrayList<IMarsRover> marsRovers, Map<Integer, ArrayList<ICommand>> roverInstructionSet) {
             this.plateau = plateau;
             this.marsRovers = marsRovers;
             this.roverInstructionSet = roverInstructionSet;
@@ -107,15 +107,13 @@ public class Decoder implements IDecoder {
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            Data data = (Data) o;
+            DecoderOutput decoderOutput = (DecoderOutput) o;
 
-            boolean p = plateau.equals(data.plateau);
-            boolean m = marsRovers.equals(data.marsRovers);
-            boolean r = true;
-            if (roverInstructionSet.size() == data.roverInstructionSet.size()) {
+            boolean p = plateau.equals(decoderOutput.plateau);
+            boolean m = marsRovers.equals(decoderOutput.marsRovers);
+            if (roverInstructionSet.size() == decoderOutput.roverInstructionSet.size()) {
                 for (Integer key : roverInstructionSet.keySet()) {
-                    ArrayList<ICommand> r1command = roverInstructionSet.get(key);
-                    ArrayList<ICommand> r2command = data.roverInstructionSet.get(key);
+                    ArrayList<ICommand> r2command = decoderOutput.roverInstructionSet.get(key);
                     int i = 0;
                     for (ICommand command : roverInstructionSet.get(key)) {
                         if (!command.equalType(r2command.get(i))) {
@@ -125,7 +123,7 @@ public class Decoder implements IDecoder {
                     }
                 }
             }
-            return (p && m && r);
+            return (p && m);
         }
     }
 

@@ -10,7 +10,7 @@ public class OutputConsoleSystemOut implements IOutput {
     public void exposeResults(ILoggerOutput loggerOutput, IData inputIData) {
         if (inputIData != null) {
             OrientedPosition roverPosition = inputIData.getMarsRovers().get(0).getOrientedPosition();
-            System.out.println(orientedPositionToJson(roverPosition));
+            System.out.print(orientedPositionToJson(roverPosition));
         }
     }
 

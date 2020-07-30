@@ -17,7 +17,7 @@ class LoggerOutputTest {
     //logger constants
     private final String LINE = "\n";
     private final String DOUBLE_LINE = "\n\n";
-    private static final String NASA_HISTORY = "------------------------------------NASA NAVIGATION HISTORY------------------------------------ \n\n";
+    private static final String NASA_HISTORY = "------------------------------------NASA EXPEDITION RESULTS------------------------------------ \n\n";
     private final String START_DECODING = "********************************STARTING DECODING INSTRUCTIONS******************************** \n\n";
     private final String TRY_DECODE_PLATEAU = "***********************************TRYING TO DECODE PLATEAU*********************************** \n\n";
     private final String PLATEAU_SUCCESS = "PLATEAU DECODED SUCCESSFULLY: ";
