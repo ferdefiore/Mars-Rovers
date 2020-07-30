@@ -1,6 +1,13 @@
 package entities;
 
-
+/**
+ * The enum CompassPoint represents the fourth principal cardinal points.
+ * It representation links each cardinal point with his first letter.
+ * North: N
+ * South: S
+ * East: E
+ * West: W
+ */
 public enum CompassPoint {
     N {
         public CompassPoint turn90DegreeLeft() { return CompassPoint.W; }
