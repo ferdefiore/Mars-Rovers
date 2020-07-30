@@ -49,6 +49,7 @@ public class MarsRover implements IMarsRover {
 
     /**
      * @return The rover OrientedPosition
+     * @see OrientedPosition
      */
     @Override
     public OrientedPosition getOrientedPosition() {

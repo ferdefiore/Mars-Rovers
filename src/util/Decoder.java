@@ -16,8 +16,18 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * This class represents a decoder used to read the input information
+ */
 public class Decoder implements IDecoder {
 
+    /**
+     * Main method used to decode input String
+     *
+     * @param input        String with the input information
+     * @param loggerOutput ILoggerOutput used to log every decoding steps and errors
+     * @return IDecoderOutput based on the DecoderOutput inner class with the decoded information served
+     */
     @Override
     public IDecoderOutput decodeInput(String input, ILoggerOutput loggerOutput) {
         Scanner scanner = new Scanner(input);
@@ -33,6 +43,9 @@ public class Decoder implements IDecoder {
         }
     }
 
+    /**
+     * Private method to decode the Plateau from the input String
+     */
     private Plateau decodePlateau(Scanner scanner, ILoggerOutput loggerOutput) {
         loggerOutput.appendStartMsg();
         int plateauDimensionWidth = scanner.nextInt();
@@ -42,6 +55,9 @@ public class Decoder implements IDecoder {
         return decodedPlateau;
     }
 
+    /**
+     * Private method to decode from the input String the Rovers and Instructions set for each rover
+     */
     private void decodeRoversAndInstructions(Scanner scanner, ArrayList<IMarsRover> marsRoversList, HashMap<Integer, ArrayList<ICommand>> instructionsSet, ILoggerOutput loggerOutput) {
         int rovId = 1;
         int xPos;
@@ -67,6 +83,10 @@ public class Decoder implements IDecoder {
         loggerOutput.appendFinishMsg();
     }
 
+    /**
+     * Private method that iterates every char in a String, and return the
+     * corresponded list of ICommand for that string
+     */
     private ArrayList<ICommand> stringToICommandList(String str) {
         ArrayList<ICommand> commands = new ArrayList<>();
         for (char c : str.toCharArray()) {
@@ -77,32 +97,75 @@ public class Decoder implements IDecoder {
         return commands;
     }
 
+    /**
+     * InnerClass used to return the decoded information
+     */
     public static class DecoderOutput implements IDecoderOutput {
+        /**
+         * @see Plateau
+         */
         private final Plateau plateau;
+
+        /**
+         * @see MarsRover
+         */
         private final ArrayList<IMarsRover> marsRovers;
+
+        /**
+         * @see ICommand
+         */
         private final Map<Integer, ArrayList<ICommand>> roverInstructionSet;
 
+        /**
+         * @return Plateau
+         * @see Plateau
+         */
         @Override
         public Plateau getPlateau() {
             return plateau;
         }
 
+
+        /**
+         * @return An ArrayList with IMarsRovers
+         * @See IMarsRovers
+         */
         @Override
         public ArrayList<IMarsRover> getMarsRovers() {
             return marsRovers;
         }
 
+
+        /**
+         * @return A Map with < key:Integer,value:ArrayList < ICommand > >
+         * @see ICommand
+         */
         @Override
         public Map<Integer, ArrayList<ICommand>> getRoverInstructionSet() {
             return roverInstructionSet;
         }
 
+
+        /**
+         * Class Constructor
+         *
+         * @param plateau             Plateau
+         * @param marsRovers          List of IMarsRovers
+         * @param roverInstructionSet Hash with (roverId, List rover's ICommand)
+         * @see Plateau
+         * @see IMarsRover
+         * @see ICommand
+         */
         public DecoderOutput(Plateau plateau, ArrayList<IMarsRover> marsRovers, Map<Integer, ArrayList<ICommand>> roverInstructionSet) {
             this.plateau = plateau;
             this.marsRovers = marsRovers;
             this.roverInstructionSet = roverInstructionSet;
         }
 
+        /**
+         * @param o Object to compare with the DecoderOutput
+         * @return true if every attribute(recursive equals) of Object o is the same as the DecoderOutput
+         */
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;
