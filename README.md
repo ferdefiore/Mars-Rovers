@@ -39,6 +39,10 @@ For running the desktop application download the source code and compile the jav
 If you only want to run the .jar without compiling java, download it from here
 [Java MarsRovers.jar](https://github.com/ferdefiore/Mars-Rovers/tree/master/out/artifacts/MarsRovers_jar) and double click it to run.
 
+#### Test
+All the classes with some logic have been tested, getting this coverage percentage:
+![Coverage](https://user-images.githubusercontent.com/38536245/88970426-c7576480-d288-11ea-8843-5ada33d893ea.png)
+
 # UI Interface
 This application has a simple user interface as mentioned before. 
 The first screen is to load the input string. 
