@@ -10,31 +10,61 @@ package entities;
  */
 public enum CompassPoint {
     N {
-        public CompassPoint turn90DegreeLeft() { return CompassPoint.W; }
+        /**
+         * @return W as CompassPoint
+         */
+        public CompassPoint turn90DegreeLeft() {
+            return CompassPoint.W;
+        }
 
-        public CompassPoint turn90DegreeRight() { return CompassPoint.E; }
+        /**
+         * @return E as CompassPoint
+         */
+        public CompassPoint turn90DegreeRight() {
+            return CompassPoint.E;
+        }
     },
     E {
-        public CompassPoint turn90DegreeLeft() { return CompassPoint.N; }
+        /**
+         * @return N as CompassPoint
+         */
+        public CompassPoint turn90DegreeLeft() {
+            return CompassPoint.N;
+        }
 
+        /**
+         * @return S as CompassPoint
+         */
         public CompassPoint turn90DegreeRight() {
             return CompassPoint.S;
         }
     },
     S {
+        /**
+         * @return E as CompassPoint
+         */
         public CompassPoint turn90DegreeLeft() {
             return CompassPoint.E;
         }
 
+        /**
+         * @return W as CompassPoint
+         */
         public CompassPoint turn90DegreeRight() {
             return CompassPoint.W;
         }
     },
     W {
+        /**
+         * @return S as CompassPoint
+         */
         public CompassPoint turn90DegreeLeft() {
             return CompassPoint.S;
         }
 
+        /**
+         * @return N as CompassPoint
+         */
         public CompassPoint turn90DegreeRight() {
             return CompassPoint.N;
         }
@@ -49,7 +79,7 @@ public enum CompassPoint {
     public abstract CompassPoint turn90DegreeRight();
 
     /**
-     * Each possible Compass Point can execute this method to calculatea new cardinal point after performing a 90 degree turn right from the actual cp.
+     * Each possible Compass Point can execute this method to calculate a new cardinal point after performing a 90 degree turn right from the actual cp.
      *
      * @return Returns the resultant Cardinal Point
      */

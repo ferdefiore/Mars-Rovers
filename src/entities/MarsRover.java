@@ -140,7 +140,7 @@ public class MarsRover implements IMarsRover {
     }
 
     /**
-     * @param o Object to compare with rover
+     * @param o Object to compare with the rover
      * @return true if every attribute of Object o is the same as the rover's
      */
     @Override
