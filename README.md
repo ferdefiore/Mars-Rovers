@@ -37,7 +37,9 @@ It was made in that way because it's thought to run:
 For running the desktop application download the source code and compile the java jar. If you want to run the .jar, you must be sure to have [Java SDK](https://www.oracle.com/ar/java/technologies/javase/javase-jdk8-downloads.html) installed.
 
 If you only want to run the .jar without compiling java, download it from here
-[Java MarsRovers.jar](https://github.com/ferdefiore/Mars-Rovers/tree/master/out/artifacts/MarsRovers_jar) and double click it to run.
+[Java MarsRovers.jar](https://github.com/ferdefiore/Mars-Rovers/tree/master/out/artifacts/MarsRovers_jar) and double click it to run, or with a console from the same folder:
+
+    java -jar .\MarsRovers.jar
 
 #### Test
 All the classes with some logic have been tested, getting this coverage percentage:
